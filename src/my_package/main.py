@@ -1,4 +1,6 @@
 import argparse
+
+#version version of the code without using the flags or the argument of the rule book
 def fizzbuzz(count=100):
     for i in range(1, count + 1):
         if i % 3 == 0 and i % 5 == 0:
@@ -17,8 +19,13 @@ def fizzbuzz(count=100):
 
 #Create an empty rule book for my program's command-line interface
 parser = argparse.ArgumentParser(description='FizzBuzz')
+
 #add the arguments
 parser.add_argument("--count", type=int, default=100)
+parser.add_argument("--fizz", type=str, default="Fizz")
+parser.add_argument("--buzz", type=str, default="Buzz")
+parser.add_argument("--fizzbuzz", type=str, default="FizzBuzz")
+
 
 #check the rules and defining the variables
 args = parser.parse_args()
@@ -26,15 +33,15 @@ args = parser.parse_args()
 for i in range(1, args.count + 1):
    output = ""
    if i % 3 == 0 and i % 5 == 0:
-       output += "FizzBuzz "
+       output += args.fizzbuzz
    elif  i % 3 == 0:
-       output += "Fizz "
+       output +=  args.fizz
    elif i % 5 == 0:
-       output += "Buzz "
+       output +=  args.buzz
    print(output if output else i)
 
 
 
-print(args.count)
+print(args.count, "arguments")
 
 
