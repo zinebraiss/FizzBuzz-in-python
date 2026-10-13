@@ -12,12 +12,6 @@ def fizzbuzz(count: int = 100) -> None:
         else:
             print(i)
 
-
-# exeuter ce block seulement si ce fichier est lancer directement :
-# if __name__ == "__main__":
-#  fizzbuzz()
-
-
 # Create an empty rule book for my program's command-line interface
 parser = argparse.ArgumentParser(description='FizzBuzz')
 
@@ -30,26 +24,20 @@ parser.add_argument("--fizzbuzz", type=str, default="FizzBuzz")
 # check the rules and defining the variables
 args = parser.parse_args()
 
-
-def fizzbuzz2() -> None:
-    output = ""
+def fizzbuzz2() -> list[str]:
+    outputs = []
     for i in range(1, args.count + 1):
         if i % 3 == 0 and i % 5 == 0:
-            output += args.fizzbuzz
-            output += "\n"
+            outputs.append(args.fizzbuzz)
+
         elif i % 3 == 0:
-            output += args.fizz
-            output += "\n"
+            outputs.append(args.fizz)
         elif i % 5 == 0:
-            output += args.buzz
-            output += "\n"
+            outputs.append(args.buzz)
         else:
-            output += str(i)
-            output += "\n"
-
-    print(output)
-
-
+            outputs.append(str(i))
+    print(outputs)
+    return outputs
 
 if __name__ == "__main__":
   fizzbuzz2()
