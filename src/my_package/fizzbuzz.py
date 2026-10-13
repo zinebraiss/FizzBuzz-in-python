@@ -17,9 +17,9 @@ def fizzbuzz2(count: int, fizz: str, buzz: str, fizzbuzz: str) -> list[str]:
 
 def main() -> int:
     # Create an empty rule book for my program's command-line interface
-    parser = argparse.ArgumentParser(description='FizzBuzz')
+    parser = argparse.ArgumentParser(description="FizzBuzz")
 
-    #adding the arguments
+    # adding the arguments
     parser.add_argument("--count", type=int, default=100)
     parser.add_argument("--fizz", type=str, default="Fizz")
     parser.add_argument("--buzz", type=str, default="Buzz")
@@ -28,8 +28,9 @@ def main() -> int:
     # Récupération des arguments
     args = parser.parse_args()
 
-    results = fizzbuzz2(count=args.count,fizz=args.fizz,buzz=args.buzz, fizzbuzz=args.fizzbuzz)
-
+    results = fizzbuzz2(
+        count=args.count, fizz=args.fizz, buzz=args.buzz, fizzbuzz=args.fizzbuzz
+    )
 
     for item in results:
         print(item)
